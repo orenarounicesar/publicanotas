@@ -6,6 +6,7 @@
 package com.unicesar.views;
 
 import com.unicesar.components.TableWithFilterSplit;
+import com.unicesar.components.TextFieldCustom;
 import com.unicesar.entity.Listas;
 import com.unicesar.utils.SeveralProcesses;
 import com.vaadin.data.Property;
@@ -87,7 +88,7 @@ public class RegistrarNotas extends VerticalSplitPanel implements View {
         tblEstudiantes.addContainerProperty("codigo", Object.class, null, "Codigo", null, Table.Align.CENTER);
         tblEstudiantes.addContainerProperty("estudiante", Object.class, null, "Estudiante", null, Table.Align.CENTER);
         tblEstudiantes.addContainerProperty("id", Object.class, null, "Identificación", null, Table.Align.CENTER);
-        tblEstudiantes.addContainerProperty("nota", TextField.class, null, "Nota", null, Table.Align.CENTER);
+        tblEstudiantes.addContainerProperty("nota", TextFieldCustom.class, null, "Nota", null, Table.Align.CENTER);
         tblEstudiantes.setSizeFull();
         tblEstudiantes.setStyleName("tablafilasdelgadascomponente");
         panelTblEstudiantes = new Panel("Listado de Estudiantes", tblEstudiantes);
@@ -136,7 +137,7 @@ public class RegistrarNotas extends VerticalSplitPanel implements View {
         Listas.estudiantes.forEach(estudiante -> {
             if ( estudiante.getCodigoAsignatura() == Integer.valueOf(codigoAsignatura.toString()) ) {
 //                NumberFieldCustom txtNota = new NumberFieldCustom(null, true, false, 0.00, 5.00, estudiante.getNota(), "100%", false, true, null);
-                TextField txtNota = new TextField();
+                TextField txtNota = new TextFieldCustom(null, estudiante.getNota(), "100%", false, true, ValoTheme.TEXTFIELD_BORDERLESS);
                 txtNota.setStyleName(ValoTheme.TEXTAREA_BORDERLESS);
                 txtNota.addValueChangeListener(new Property.ValueChangeListener() {
                     private final int codigoEstudianteAsignatura = estudiante.getCodigoEstudiante();
