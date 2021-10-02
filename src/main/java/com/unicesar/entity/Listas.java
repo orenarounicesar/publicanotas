@@ -13,16 +13,18 @@ import java.util.List;
  * @author orenaro
  */
 public class Listas {
-    public static List<Asignatura> asignaturas = new ArrayList<>();
-    public static List<Estudiante> estudiantes = new ArrayList<>();
+    public static List<Asignatura> asignaturas;
+    public static List<Estudiante> estudiantes;
     
-    public static void cargarAsignaturas() {
+    public static void cargarListaAsignaturas() {
+        asignaturas = new ArrayList<>();
         asignaturas.add( new Asignatura(1, "PROGRAMACION ORIENTADA A OBJETOS") );
         asignaturas.add( new Asignatura(2, "ESTRUCTURAS DE DATOS") );
         asignaturas.add( new Asignatura(3, "CALCULO DIFERENCIAL") );
     }
     
-    public static void cargarEstudiantes() {
+    public static void cargarListaEstudiantes() {
+        estudiantes = new ArrayList<>();
         estudiantes.add(
             new Estudiante(1, "20190102", "SUSANA MARIA OROZCO PEREZ", "CC", "1065622133", null, 1)
         );

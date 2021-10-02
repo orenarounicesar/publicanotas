@@ -8,6 +8,7 @@ package com.unicesar.views;
 import com.unicesar.businesslogic.GestionDB;
 import com.unicesar.components.NumberFieldCustom;
 import com.unicesar.components.TableWithFilterSplit;
+import com.unicesar.entity.Listas;
 import com.unicesar.utils.GestionarNota;
 import com.unicesar.utils.SeveralProcesses;
 import com.vaadin.data.Property;
@@ -54,6 +55,8 @@ public class RegistrarNotas extends VerticalSplitPanel implements View {
     
     @Override
     public void enter(ViewChangeListener.ViewChangeEvent event) {
+        Listas.cargarListaAsignaturas();
+        Listas.cargarListaEstudiantes();
         lblTitulo = new Label("Registro de Notas");
         lblTitulo.setWidthUndefined();
         lblTitulo.setStyleName("titulo");
@@ -108,7 +111,7 @@ public class RegistrarNotas extends VerticalSplitPanel implements View {
         setSplitPosition(85, Sizeable.Unit.PIXELS);
         setStyleName("fondoaplicacion");
         
-        cargarTblAsignaturas();
+        cargarTblAsignaturasDesdeLista();
         tblAsignaturas.addItemClickListener(e -> {
             cargarTblEstudiantes(e.getItem().getItemProperty("codigo").getValue());
         });
@@ -170,6 +173,18 @@ public class RegistrarNotas extends VerticalSplitPanel implements View {
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "Cerrando Conexión - " + SeveralProcesses.getSessionUser(), ex);
             }
         }
+    }
+    
+    private void cargarTblAsignaturasDesdeLista() {
+        Listas.asignaturas.forEach(asignatura -> {
+                tblAsignaturas.addItem(
+                        new Object[]{
+                            asignatura.getCodigoAsignatura(),
+                            asignatura.getNombreAsignatura()
+                        }, 
+                        asignatura.getCodigoAsignatura()
+                );
+        });
     }
     
     private void cargarTblAsignaturas() {
