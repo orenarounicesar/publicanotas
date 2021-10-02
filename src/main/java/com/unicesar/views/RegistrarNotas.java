@@ -104,6 +104,7 @@ public class RegistrarNotas extends VerticalSplitPanel implements View {
         setSizeFull();
         setSplitPosition(85, Sizeable.Unit.PIXELS);
         setStyleName("fondoaplicacion");
+        setLocked(true);
         
         cargarTblAsignaturasDesdeLista();
         tblAsignaturas.addItemClickListener(e -> {
