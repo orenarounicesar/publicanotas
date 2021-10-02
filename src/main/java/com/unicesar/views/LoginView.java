@@ -5,9 +5,10 @@ import com.unicesar.utils.VariablesSesion;
 import com.unicesar.utils.SeveralProcesses;
 import com.unicesar.utils.Views;
 import com.vaadin.event.ShortcutAction.KeyCode;
-import com.vaadin.icons.VaadinIcons;
+//import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
+import com.vaadin.server.FontAwesome;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.FormLayout;
@@ -62,7 +63,7 @@ public class LoginView extends VerticalLayout implements View {
         txtLogin.setRequired(true);
         txtLogin.setCaption("Usuario:");
         txtLogin.setWidth("100%");
-        txtLogin.setIcon(VaadinIcons.USER);
+//        txtLogin.setIcon(VaadinIcons.USER);
         txtLogin.focus();
         layoutLogin.addComponent(txtLogin);
 
@@ -72,10 +73,10 @@ public class LoginView extends VerticalLayout implements View {
         txtPassword.setImmediate(false);
         txtPassword.setWidth("100%");
         txtPassword.setHeight("-1px");
-        txtPassword.setIcon(VaadinIcons.KEY);
+//        txtPassword.setIcon(VaadinIcons.KEY);
         layoutLogin.addComponent(txtPassword);
 
-        btnIngresar = new Button("Ingresar" , VaadinIcons.CHECK);
+        btnIngresar = new Button("Ingresar" , FontAwesome.CHECK);
         btnIngresar.setImmediate(true);
         btnIngresar.setWidth("100%");
         btnIngresar.setHeight("-1px");

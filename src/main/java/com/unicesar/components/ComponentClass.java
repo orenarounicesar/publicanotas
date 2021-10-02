@@ -25,8 +25,6 @@ import com.vaadin.ui.Tree;
 import com.vaadin.ui.TwinColSelect;
 import com.vaadin.ui.Upload;
 import eu.maxschuster.vaadin.autocompletetextfield.AutocompleteTextField;
-import org.vaadin.teemu.switchui.Switch;
-import org.vaadin.ui.NumberField;
 
 public class ComponentClass {
     public static Class componentes[] = {Button.class, CheckBox.class, TextField.class, 
@@ -34,9 +32,9 @@ public class ComponentClass {
         ComboBox.class, ListSelect.class, NativeSelect.class, TwinColSelect.class, 
         OptionGroup.class, Table.class, Tree.class, Label.class, Grid.class, TextArea.class, 
         Upload.class, Embedded.class, Image.class, PasswordField.class, 
-        TextFieldCustom.class, ComboBoxCustom.class, NumberField.class, NumberFieldCustom.class,
+        TextFieldCustom.class, ComboBoxCustom.class, 
         AutocompleteTextField.class, PopupView.class, 
-        TableWithFilter.class, TextAreaCustom.class, Switch.class, TableWithFilterSplit.class,
-        TextFieldMask.class, LabelClick.class, Link.class
+        TableWithFilter.class, TextAreaCustom.class, TableWithFilterSplit.class,
+        LabelClick.class, Link.class
     };
 }

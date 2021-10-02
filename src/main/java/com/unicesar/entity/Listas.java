@@ -29,10 +29,10 @@ public class Listas {
             new Estudiante(1, "20190102", "SUSANA MARIA OROZCO PEREZ", "CC", "1065622133", null, 1)
         );
         estudiantes.add(
-            new Estudiante(1, "20190103", "JOSE AVENDAÑO DUARTE", "CC", "1065332098", "3,5", 1)
+            new Estudiante(2, "20190103", "JOSE AVENDAÑO DUARTE", "CC", "1065332098", "3.5", 1)
         );
         estudiantes.add(
-            new Estudiante(1, "20190104", "VICTOR HUGO SUAREZ BONILLA", "CC", "1067901099", null, 2)
+            new Estudiante(3, "20190104", "VICTOR HUGO SUAREZ BONILLA", "CC", "1067901099", null, 2)
         );
     }
 }

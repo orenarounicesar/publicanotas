@@ -8,11 +8,9 @@ import com.unicesar.businesslogic.Notifications;
 import com.unicesar.components.ComboBoxCustom;
 import com.unicesar.components.ComponentClass;
 import com.unicesar.components.LabelClick;
-import com.unicesar.components.NumberFieldCustom;
 import com.unicesar.components.TableWithFilter;
 import com.unicesar.components.TextAreaCustom;
 import com.unicesar.components.TextFieldCustom;
-import com.unicesar.components.TextFieldMask;
 import com.unicesar.components.TwinColSelectCustom;
 import com.vaadin.data.Item;
 import com.vaadin.server.StreamResource;
@@ -57,8 +55,6 @@ import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javax.naming.NamingException;
 import org.apache.commons.io.IOUtils;
-import org.vaadin.teemu.switchui.Switch;
-import org.vaadin.ui.NumberField;
 
 public class SeveralProcesses {
     
@@ -323,7 +319,7 @@ public class SeveralProcesses {
         }
             
         if (component.getClass().equals(TextField.class) || component.getClass().equals(TextFieldCustom.class) || 
-                component.getClass().equals(NumberField.class) || component.getClass().equals(NumberFieldCustom.class) || 
+                
                 component.getClass().equals(AutocompleteTextField.class)) {
             TextField textField = (TextField) component;
             if (textField.getValue() != null && !textField.getValue().trim().isEmpty())
@@ -1558,20 +1554,6 @@ public class SeveralProcesses {
         return retorno;
     }
     
-    public static String getValorComponenteEncuesta(Component componente) {
-        String retorno;
-        if (componente.getClass().equals(Switch.class)) {
-            if (((Switch)componente).getValue())
-                retorno = "'SI'";
-            else
-                retorno = "'NO'";
-        } else {
-            retorno = getValorComponente(componente, true);
-        }
-        
-        return retorno;
-    }
-    
     public static String getLoginEmpresaCliente(Object valor) {
         String retorno = null;
         if (UI.getCurrent().getSession().getAttribute(VariablesSesion.CODIGO_DOCENTE).equals("CLIENTE") && valor == null) {
@@ -1927,8 +1909,8 @@ public class SeveralProcesses {
     public static Boolean valueComponentValidate(Component next, Boolean retorno) {
                     
         if ( next.getClass().equals(TextField.class) || next.getClass().equals(TextFieldCustom.class) 
-                || next.getClass().equals(NumberField.class) || next.getClass().equals(NumberFieldCustom.class)
-                || next.getClass().equals(AutocompleteTextField.class) || next.getClass().equals(TextFieldMask.class) ) {
+                
+                || next.getClass().equals(AutocompleteTextField.class) ) {
             TextField textField = (TextField) next;
             if (!textField.isValid()){
                 textField.setRequiredError("El valor de " + textField.getCaption().trim() + 
@@ -2029,5 +2011,9 @@ public class SeveralProcesses {
     
     public static Object getCodigoDocenteEnSesion() {
         return UI.getCurrent().getSession().getAttribute(VariablesSesion.CODIGO_DOCENTE);
+    }
+    
+    public static Object getNombreUsuarioEnSesion() {
+        return UI.getCurrent().getSession().getAttribute(VariablesSesion.NOMBRE_USUARIO);
     }
 }
