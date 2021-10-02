@@ -83,7 +83,8 @@ public class LoginView extends VerticalLayout implements View {
         btnIngresar.setClickShortcut( KeyCode.ENTER );
         btnIngresar.addClickListener(e -> {
             if (SeveralProcesses.isComponentRequired(layoutLogin)) {
-                validarLogin();
+//                validarLogin();
+                avanzarAIngresarNotas();
             }
         });
         layoutLogin.addComponent(btnIngresar);
@@ -130,5 +131,14 @@ public class LoginView extends VerticalLayout implements View {
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "Cerrando Conexión Login", ex);
             }
         }
+    }
+    
+    private void avanzarAIngresarNotas() {
+        UI.getCurrent().getSession().setAttribute(VariablesSesion.CODIGO_USUARIO, "1");
+        UI.getCurrent().getSession().setAttribute(VariablesSesion.LOGIN, "orenaro");
+        UI.getCurrent().getSession().setAttribute(VariablesSesion.NOMBRE_USUARIO, "Orlando Arrieta");                    
+        UI.getCurrent().getSession().setAttribute(VariablesSesion.CODIGO_DOCENTE, "1");
+        UI.getCurrent().getSession().setAttribute(VariablesSesion.CODIGO_ESTUDAINTE, null);
+        UI.getCurrent().getNavigator().navigateTo(Views.REGISTRARNOTAS);
     }
 }
